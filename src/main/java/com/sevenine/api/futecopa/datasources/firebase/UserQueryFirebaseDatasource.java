@@ -22,14 +22,16 @@ public class UserQueryFirebaseDatasource implements UserQueryRepository {
     public User findByUserWithSlug(String slug) {
         ApiFuture<QuerySnapshot> future = firestore.collection("users").whereEqualTo("slug", slug).get();
 
-        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), User.class);
+        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future)
+                .findFirst().orElseThrow(), User.class);
     }
 
     @Override
     public User findByUserWithUid(String uid) {
         ApiFuture<QuerySnapshot> future = firestore.collection("users").whereEqualTo("uid", uid).get();
 
-        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), User.class);
+        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future)
+                .findFirst().orElseThrow(), User.class);
     }
 
 }

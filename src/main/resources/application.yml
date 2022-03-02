@@ -1,0 +1,34 @@
+server:
+  port: 5000
+
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logbook:
+  exclude:
+    - /actuator/health
+  filter.enabled: true
+  format.style: json
+  obfuscate:
+    headers:
+      - Authorization
+      - X-Secret
+    parameters:
+      - access_token
+      - password
+      - senha
+  write:
+    chunk-size: 1000
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework: INFO
+      zalando:
+        logbook: TRACE
+
+firebase:
+  app: https://copa-app-9057a.firebaseio.com
