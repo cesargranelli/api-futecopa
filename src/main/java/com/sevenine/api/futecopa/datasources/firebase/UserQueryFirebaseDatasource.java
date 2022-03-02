@@ -25,4 +25,11 @@ public class UserQueryFirebaseDatasource implements UserQueryRepository {
         return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), User.class);
     }
 
+    @Override
+    public User findByUserWithUid(String uid) {
+        ApiFuture<QuerySnapshot> future = firestore.collection("users").whereEqualTo("uid", uid).get();
+
+        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), User.class);
+    }
+
 }

@@ -3,10 +3,7 @@ package com.sevenine.api.futecopa.transportlayers;
 import com.sevenine.api.futecopa.entities.User;
 import com.sevenine.api.futecopa.repositories.UserQueryRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("users")
@@ -18,6 +15,11 @@ public class UserController {
     @GetMapping("{slug}")
     public User getUserBySlug(@PathVariable String slug) {
         return repository.findByUserWithSlug(slug);
+    }
+
+    @GetMapping("uid")
+    public User getUserByUid(@RequestHeader String uid) {
+        return repository.findByUserWithUid(uid);
     }
 
 }
