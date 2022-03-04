@@ -5,5 +5,7 @@ import com.sevenine.api.futecopa.entities.Round;
 import java.util.List;
 
 public interface RoundQueryRepository {
-    List<Round> findByRounds();
+    List<Round> findRounds();
+
+    Round findRoundById(String roundId);
 }

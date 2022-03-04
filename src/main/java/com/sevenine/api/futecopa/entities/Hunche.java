@@ -11,7 +11,7 @@ public class Hunche {
     private String awayScore;
     private String awaySlug;
     private String awayTeam;
-    private String formatedtartDate;
+    private String formatedStartDate;
     private String homeLogo;
     private String homeScore;
     private String homeSlug;

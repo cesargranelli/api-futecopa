@@ -4,6 +4,7 @@ import com.sevenine.api.futecopa.entities.Round;
 import com.sevenine.api.futecopa.repositories.RoundQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,12 @@ public class RoundController {
 
     @GetMapping
     public List<Round> getRounds() {
-        return repository.findByRounds();
+        return repository.findRounds();
+    }
+
+    @GetMapping("{roundId}")
+    public Round getRound(@PathVariable String roundId) {
+        return repository.findRoundById(roundId);
     }
 
 }

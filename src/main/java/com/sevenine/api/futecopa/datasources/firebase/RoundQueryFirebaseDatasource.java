@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotListValidator;
 import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotValidator;
 import com.sevenine.api.futecopa.entities.Round;
 import com.sevenine.api.futecopa.repositories.RoundQueryRepository;
@@ -22,11 +23,19 @@ public class RoundQueryFirebaseDatasource implements RoundQueryRepository {
     private final ObjectMapper objectMapper;
 
     @Override
-    public List<Round> findByRounds() {
+    public List<Round> findRounds() {
         ApiFuture<QuerySnapshot> future = firestore.collection("rounds").get();
 
-        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), new TypeReference<>() {
+        return objectMapper.convertValue(QuerySnapshotListValidator.getDocumentSnapshotList(future), new TypeReference<>() {
         });
+    }
+
+    @Override
+    public Round findRoundById(String roundId) {
+        ApiFuture<QuerySnapshot> future =
+                firestore.collection("rounds").whereEqualTo("round", Integer.valueOf(roundId)).get();
+
+        return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), Round.class);
     }
 
 }

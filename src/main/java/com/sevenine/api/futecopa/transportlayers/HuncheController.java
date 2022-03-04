@@ -19,7 +19,7 @@ public class HuncheController {
 
     @GetMapping("slug/{slug}/round/{round}")
     public List<Hunche> getHunches(@PathVariable String slug, @PathVariable String round) {
-        return repository.findBySlugAndRound(slug, round);
+        return repository.findHunchesBySlugAndRound(slug, round);
     }
 
 }
