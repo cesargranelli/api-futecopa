@@ -32,3 +32,13 @@ logging:
 
 firebase:
   app: https://copa-app-9057a.firebaseio.com
+
+sofascore:
+  torneio:
+    id: 16
+  temporada:
+    id: 15586
+  api: https://api.sofascore.com/api/v1
+  source:
+    rounds: unique-tournament/${sofascore.torneio.id}/season/${sofascore.temporada.id}/rounds
+    events: unique-tournament/${sofascore.torneio.id}/season/${sofascore.temporada.id}/events

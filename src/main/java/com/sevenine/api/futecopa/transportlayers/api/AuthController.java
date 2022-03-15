@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.transportlayers;
+package com.sevenine.api.futecopa.transportlayers.api;
 
 import com.sevenine.api.futecopa.entities.UserRegistered;
 import com.sevenine.api.futecopa.interactors.UserRegisterService;

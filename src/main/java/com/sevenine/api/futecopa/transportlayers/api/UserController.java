@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.transportlayers;
+package com.sevenine.api.futecopa.transportlayers.api;
 
 import com.sevenine.api.futecopa.entities.User;
 import com.sevenine.api.futecopa.repositories.UserQueryRepository;
