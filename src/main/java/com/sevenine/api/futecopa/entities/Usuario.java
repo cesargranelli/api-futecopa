@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @Setter
-public class User {
+public class Usuario {
     private String uid;
     private String nickname;
     private String slug;

@@ -5,33 +5,33 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotListValidator;
-import com.sevenine.api.futecopa.entities.User;
-import com.sevenine.api.futecopa.repositories.UserQueryRepository;
+import com.sevenine.api.futecopa.entities.Usuario;
+import com.sevenine.api.futecopa.repositories.UsuarioQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class UserQueryFirebaseDatasource implements UserQueryRepository {
+public class UsuarioQueryFirebaseDatasource implements UsuarioQueryRepository {
 
     private final Firestore firestore;
 
     private final ObjectMapper objectMapper;
 
     @Override
-    public User findByUserWithSlug(String slug) {
-        ApiFuture<QuerySnapshot> future = firestore.collection("users").whereEqualTo("slug", slug).get();
+    public Usuario buscaUsuarioApelido(String apelido) {
+        ApiFuture<QuerySnapshot> future = firestore.collection("usuarios").whereEqualTo("slug", apelido).get();
 
         return objectMapper.convertValue(QuerySnapshotListValidator.getDocumentSnapshotList(future)
-                .findFirst().orElseThrow(), User.class);
+                .findFirst().orElseThrow(), Usuario.class);
     }
 
     @Override
-    public User findByUserWithUid(String uid) {
-        ApiFuture<QuerySnapshot> future = firestore.collection("users").whereEqualTo("uid", uid).get();
+    public Usuario buscaUsuarioUid(String uid) {
+        ApiFuture<QuerySnapshot> future = firestore.collection("usuarios").whereEqualTo("uid", uid).get();
 
         return objectMapper.convertValue(QuerySnapshotListValidator.getDocumentSnapshotList(future)
-                .findFirst().orElseThrow(), User.class);
+                .findFirst().orElseThrow(), Usuario.class);
     }
 
 }

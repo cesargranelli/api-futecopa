@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AuthCreate {
+public class UsuarioCadastrado {
+    private String uid;
     private String email;
-    private String password;
     private String displayName;
 }

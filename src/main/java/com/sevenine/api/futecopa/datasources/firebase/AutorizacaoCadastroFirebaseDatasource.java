@@ -4,29 +4,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
-import com.sevenine.api.futecopa.entities.AuthCreate;
-import com.sevenine.api.futecopa.entities.AuthCreated;
-import com.sevenine.api.futecopa.repositories.AuthCreateRepository;
+import com.sevenine.api.futecopa.entities.UsuarioCadastrado;
+import com.sevenine.api.futecopa.entities.UsuarioCadastro;
+import com.sevenine.api.futecopa.repositories.AutorizacaoCadastroRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class AuthCreateFirebaseDatasource implements AuthCreateRepository {
+public class AutorizacaoCadastroFirebaseDatasource implements AutorizacaoCadastroRepository {
 
     private final ObjectMapper objectMapper;
 
     @Override
-    public AuthCreated create(AuthCreate authCreate) {
-        UserRecord.CreateRequest request = objectMapper.convertValue(authCreate, UserRecord.CreateRequest.class);
+    public UsuarioCadastrado create(UsuarioCadastro usuarioCadastro) {
+        UserRecord.CreateRequest request = objectMapper.convertValue(usuarioCadastro, UserRecord.CreateRequest.class);
 
         try {
             UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
-            return objectMapper.convertValue(userRecord, AuthCreated.class);
+            return objectMapper.convertValue(userRecord, UsuarioCadastrado.class);
         } catch (FirebaseAuthException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 }

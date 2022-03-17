@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserRegistered {
+public class UsuarioRegistrado {
     private String uid;
     private String slug;
 }

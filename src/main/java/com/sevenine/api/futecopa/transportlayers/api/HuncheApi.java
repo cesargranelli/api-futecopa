@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("hunches")
 @RestController
-public class HuncheController {
+public class HuncheApi {
 
     private final HuncheQueryRepository repository;
 
