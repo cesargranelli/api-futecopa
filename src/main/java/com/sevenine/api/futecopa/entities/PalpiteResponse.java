@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Hunche {
+public class PalpiteResponse {
     private Long id;
     private String awayLogo;
     private String awayScore;

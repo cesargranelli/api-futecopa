@@ -2,7 +2,6 @@ package com.sevenine.api.futecopa.datasources.firebase;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotListValidator;
@@ -14,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 @RequiredArgsConstructor
 @Component
@@ -30,7 +30,7 @@ public class RodadaFirebaseDatasource implements RodadaRepository {
 
     @Override
     public List<Round> findRounds() {
-        ApiFuture<QuerySnapshot> future = firestore.collection("rounds").get();
+        Future<QuerySnapshot> future = firestore.collection("rounds").get();
 
         return objectMapper.convertValue(QuerySnapshotListValidator.getDocumentSnapshotList(future), new TypeReference<>() {
         });
@@ -38,7 +38,7 @@ public class RodadaFirebaseDatasource implements RodadaRepository {
 
     @Override
     public Round findRoundById(String roundId) {
-        ApiFuture<QuerySnapshot> future =
+        Future<QuerySnapshot> future =
                 firestore.collection("rounds").whereEqualTo("round", Integer.valueOf(roundId)).get();
 
         return objectMapper.convertValue(QuerySnapshotValidator.getDocumentSnapshot(future), Round.class);
@@ -46,7 +46,7 @@ public class RodadaFirebaseDatasource implements RodadaRepository {
 
     @Override
     public List<Rodada> getRodadas() {
-        ApiFuture<QuerySnapshot> future = firestore.collection("rodadas").get();
+        Future<QuerySnapshot> future = firestore.collection("rodadas").get();
 
         return objectMapper.convertValue(QuerySnapshotListValidator.getDocumentSnapshotList(future), new TypeReference<>() {
         });

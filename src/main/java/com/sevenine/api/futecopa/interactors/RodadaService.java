@@ -30,8 +30,7 @@ public class RodadaService {
                 } else {
                     sbRoundPath.append(round.getRound()).append("/slug/").append(round.getSlug());
                 }
-                SofascoreEventsResponse eventsByRound =
-                        client.getEventsByRound(sbRoundPath.toString());
+                SofascoreEventsResponse eventsByRound = client.getEventsByRound(sbRoundPath.toString());
 
                 Rodada rodada = RodadaMapper.INSTANCE.convertRoundToRodada(round, currentRound);
                 rodada.setEventos(RodadaMapper.INSTANCE.convertEventsToEventos(eventsByRound.getEvents()));
