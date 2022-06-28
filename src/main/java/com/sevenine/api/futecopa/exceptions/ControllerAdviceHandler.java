@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class ControllerAdviceHandler extends ResponseEntityExceptionHandler {
@@ -18,12 +19,18 @@ public class ControllerAdviceHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> handleControllerException(HttpServletRequest request, Exception ex) {
         if (ex.getCause() instanceof FirebaseAuthException) {
             return handleFirebaseAuthException((FirebaseAuthException) ex.getCause());
+        } else if (ex.getCause() instanceof NoSuchElementException) {
+            return handleNoSuchElementException((NoSuchElementException) ex.getCause());
         }
         return new ResponseEntity<>(new ApplicationErrorBody(HttpStatus.INTERNAL_SERVER_ERROR.name(), ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private ResponseEntity<?> handleFirebaseAuthException(FirebaseAuthException ex) {
         return new ResponseEntity<>(new ApplicationErrorBody(ex.getErrorCode().name(), ex.getMessage()), HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    private ResponseEntity<?> handleNoSuchElementException(NoSuchElementException ex) {
+        return new ResponseEntity<>(new ApplicationErrorBody(ex.getMessage(), ex.getMessage()), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ResponseBody

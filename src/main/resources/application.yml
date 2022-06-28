@@ -5,6 +5,14 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  cloud:
+    config:
+      enabled: false
+    gcp:
+      firestore:
+        project-id: copa-app-9057a
+      credentials:
+        location: src/main/resources/google-credentials.json
 
 logbook:
   exclude:
