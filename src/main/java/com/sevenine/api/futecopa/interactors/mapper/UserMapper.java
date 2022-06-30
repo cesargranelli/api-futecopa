@@ -1,6 +1,5 @@
 package com.sevenine.api.futecopa.interactors.mapper;
 
-import com.google.firebase.auth.UserRecord;
 import com.sevenine.api.futecopa.datasources.firestore.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,6 +13,7 @@ public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "uid", expression = "java(userRecord.get(\"localId\"))")
     @Mapping(target = "name", expression = "java(user.get(\"name\"))")
     @Mapping(target = "slug", expression = "java(user.get(\"nickname\"))")
     @Mapping(target = "nickname", expression = "java(user.get(\"nickname\"))")
@@ -22,6 +22,6 @@ public interface UserMapper {
     @Mapping(target = "round", ignore = true)
     @Mapping(target = "position", ignore = true)
     @Mapping(target = "photo", ignore = true)
-    User toUser(Map<String, String> user, UserRecord userRecord);
+    User toUser(Map<String, String> user, Map<String, String> userRecord);
 
 }
