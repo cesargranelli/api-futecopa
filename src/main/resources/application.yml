@@ -32,11 +32,14 @@ logbook:
 
 logging:
   level:
+    web: INFO
     root: INFO
     org:
       springframework: INFO
       zalando:
         logbook: TRACE
+
+
 
 firebase:
   app: https://copa-app-9057a.firebaseio.com

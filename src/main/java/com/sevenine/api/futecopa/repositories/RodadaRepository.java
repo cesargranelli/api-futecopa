@@ -1,7 +1,7 @@
 package com.sevenine.api.futecopa.repositories;
 
 import com.sevenine.api.futecopa.entities.Rodada;
-import com.sevenine.api.futecopa.entities.Round;
+import com.sevenine.api.futecopa.datasources.firestore.entities.Round;
 
 import java.util.List;
 
