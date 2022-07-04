@@ -10,8 +10,8 @@ import org.springframework.cloud.gcp.data.firestore.Document;
 public class Round {
     private String end;
     private String name;
-    private String round;
-    private String slug;
+    private String matchDay;
+    private String stage;
     private String start;
     private String status;
 }

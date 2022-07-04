@@ -1,5 +1,6 @@
-package com.sevenine.api.futecopa.entities;
+package com.sevenine.api.futecopa.datasources.firestore.entities;
 
+import com.sevenine.api.futecopa.entities.Time;
 import lombok.Getter;
 import lombok.Setter;
 

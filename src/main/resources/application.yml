@@ -17,8 +17,10 @@ spring:
 logbook:
   exclude:
     - /actuator/health
-  filter.enabled: true
-  format.style: json
+  filter:
+    enabled: true
+  format:
+    style: json
   obfuscate:
     headers:
       - Authorization
@@ -32,17 +34,31 @@ logbook:
 
 logging:
   level:
-    web: INFO
     root: INFO
     org:
       springframework: INFO
       zalando:
         logbook: TRACE
-
-
+    api-football: DEBUG
 
 firebase:
   app: https://copa-app-9057a.firebaseio.com
+
+api-football:
+  competition-code: WC
+  season-code: 2022
+  api: https://api.football-data.org/v4
+  resources:
+    matches: /competitions/${api-football.competition-code}/matches
+
+feign:
+  client:
+    config:
+      api-football:
+        defaultRequestHeaders:
+          X-Auth-Token: 40d549b19b7b4b1e89064ef42c71da62
+      default:
+        loggerLevel: full
 
 sofascore:
   torneio:

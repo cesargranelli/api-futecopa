@@ -3,12 +3,12 @@ package com.sevenine.api.futecopa.interactors;
 import com.sevenine.api.futecopa.datasources.firestore.entities.Round;
 import com.sevenine.api.futecopa.datasources.firestore.repositories.RoundRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@RestController
+@Service
 public class RoundService {
 
     private final RoundRepository repository;

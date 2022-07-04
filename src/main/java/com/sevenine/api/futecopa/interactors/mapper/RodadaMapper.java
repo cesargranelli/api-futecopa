@@ -4,7 +4,7 @@ import com.sevenine.api.futecopa.datasources.sofascore.dto.Event;
 import com.sevenine.api.futecopa.datasources.sofascore.dto.Round;
 import com.sevenine.api.futecopa.datasources.sofascore.dto.Score;
 import com.sevenine.api.futecopa.datasources.sofascore.dto.Team;
-import com.sevenine.api.futecopa.entities.Evento;
+import com.sevenine.api.futecopa.datasources.firestore.entities.Evento;
 import com.sevenine.api.futecopa.entities.Rodada;
 import com.sevenine.api.futecopa.entities.Time;
 import org.apache.commons.lang3.StringUtils;

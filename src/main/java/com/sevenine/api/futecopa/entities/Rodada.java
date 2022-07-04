@@ -1,5 +1,6 @@
 package com.sevenine.api.futecopa.entities;
 
+import com.sevenine.api.futecopa.datasources.firestore.entities.Evento;
 import lombok.Getter;
 import lombok.Setter;
 
