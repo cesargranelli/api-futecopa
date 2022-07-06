@@ -16,14 +16,14 @@ public class GuessApi {
     private final GuessService service;
     private final PalpiteListaService listaService;
 
-    @GetMapping
-    public Guess findBySlugAndMatchDay(@RequestHeader String slug, @RequestHeader String matchDay) {
-        return service.findBySlugAndRound(slug, matchDay);
+    @PostMapping
+    public Object create(@RequestBody Guess guess) {
+        return service.create(guess);
     }
 
-    @PostMapping
-    public Guess save(@RequestBody Guess guess) {
-        return service.save(guess);
+    @GetMapping
+    public Guess findBy(@RequestHeader String slug, @RequestHeader String matchDay) {
+        return service.findBy(slug, matchDay);
     }
 
     @GetMapping("listar")

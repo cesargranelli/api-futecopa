@@ -13,6 +13,16 @@ spring:
         project-id: copa-app-9057a
       credentials:
         location: src/main/resources/google-credentials.json
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-107-22-238-112.compute-1.amazonaws.com:5432/d2bpth7sigg1gu
+    username: kjvshfmjpordww
+    password: f03383c3c9fc95318866c34ba62e832d0fb95e7fdff70b1381adbc55629f9ce3
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 logbook:
   exclude:

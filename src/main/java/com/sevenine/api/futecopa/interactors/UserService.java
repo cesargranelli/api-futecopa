@@ -23,7 +23,7 @@ import java.util.Objects;
 @Service
 public class UserService {
 
-    private final UserRepository repository;
+//    private final UserRepository repository;
 
     private final ObjectMapper objectMapper;
 
@@ -36,7 +36,7 @@ public class UserService {
                             HttpMethod.POST, new HttpEntity<>(user), new ParameterizedTypeReference<>() {
                             });
 
-            return repository.save(UserMapper.INSTANCE.toUser(user, mapResponse.getBody())).block();
+            return null;//repository.save(UserMapper.INSTANCE.toUser(user, mapResponse.getBody())).block();
         } catch (HttpClientErrorException e) {
             try {
                 FirebaseAuthException firebaseAuthException = objectMapper.readValue(e.getResponseBodyAsString(), FirebaseAuthException.class);
@@ -56,7 +56,7 @@ public class UserService {
                             HttpMethod.POST, new HttpEntity<>(login), new ParameterizedTypeReference<>() {
                             });
 
-            return repository.findByUid(Objects.requireNonNull(mapResponseEntity.getBody()).get("localId")).single().block();
+            return null;//repository.findByUid(Objects.requireNonNull(mapResponseEntity.getBody()).get("localId")).single().block();
         } catch (HttpClientErrorException e) {
             try {
                 FirebaseAuthException firebaseAuthException = objectMapper.readValue(e.getResponseBodyAsString(), FirebaseAuthException.class);
@@ -71,7 +71,7 @@ public class UserService {
 
     public User findByUid(String uid) {
         try {
-            return repository.findByUid(uid).single().block();
+            return null;//repository.findByUid(uid).single().block();
         } catch (NoSuchElementException e) {
             throw new RuntimeException(e);
         }
@@ -79,7 +79,7 @@ public class UserService {
 
     public User findBySlug(String slug) {
         try {
-            return repository.findById(slug).single().block();
+            return null;//repository.findById(slug).single().block();
         } catch (NoSuchElementException e) {
             throw new RuntimeException(e);
         }

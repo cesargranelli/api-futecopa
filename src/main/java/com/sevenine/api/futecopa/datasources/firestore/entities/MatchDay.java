@@ -9,12 +9,12 @@ import java.util.List;
 
 @Getter
 @Setter
-@Document(collectionName = "guesses")
-public class Guess {
+@Document(collectionName = "matchDays")
+public class MatchDay {
 
     @DocumentId
-    private String slug;
+    private String id;
 
-    private List<MatchDay> matchDays;
+    private List<Game> games;
 
 }

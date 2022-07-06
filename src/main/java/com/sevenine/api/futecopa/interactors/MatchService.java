@@ -1,17 +1,11 @@
 package com.sevenine.api.futecopa.interactors;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.api.futecopa.datasources.apifootball.ApiFootballClient;
-import com.sevenine.api.futecopa.datasources.apifootball.entities.Match;
-import com.sevenine.api.futecopa.datasources.firestore.entities.Event;
-import com.sevenine.api.futecopa.datasources.firestore.entities.Game;
+import com.sevenine.api.futecopa.datasources.firestore.entities.MatchDay;
 import com.sevenine.api.futecopa.datasources.firestore.repositories.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -19,11 +13,11 @@ public class MatchService {
 
     private final ApiFootballClient apiFootballClient;
 
-    private final EventRepository eventRepository;
+//    private final EventRepository eventRepository;
 
     private final ObjectMapper mapper;
 
-    public Event findByGames(String matchDay) {
+    public MatchDay findByGames(String matchDay) {
 //        List<Match> matches = mapper.convertValue(apiFootballClient.season(matchDay).get("matches"), new TypeReference<>() {
 //        });
 //
