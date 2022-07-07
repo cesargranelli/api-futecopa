@@ -1,18 +1,14 @@
-package com.sevenine.api.futecopa.datasources.firestore.entities;
+package com.sevenine.api.futecopa.entities;
 
-import com.google.cloud.firestore.annotation.DocumentId;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.cloud.gcp.data.firestore.Document;
 
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Getter
 @Setter
-@Document(collectionName = "users")
 public class User {
-
-    @DocumentId
-    private String id;
 
     private String uid;
     private String name;
@@ -26,7 +22,6 @@ public class User {
 
     public void setSlug(String nickname) {
         slug = StringUtils.lowerCase(StringUtils.replace(nickname, " ", "-"));
-        id = slug;
     }
 
 }
