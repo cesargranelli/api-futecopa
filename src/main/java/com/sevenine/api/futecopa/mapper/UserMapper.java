@@ -1,8 +1,8 @@
-package com.sevenine.api.futecopa.interactors.mapper;
+package com.sevenine.api.futecopa.mapper;
 
-import com.sevenine.api.futecopa.datasources.firebase.entities.Registered;
-import com.sevenine.api.futecopa.datasources.jpa.entities.UserData;
-import com.sevenine.api.futecopa.entities.Register;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
+import com.sevenine.api.futecopa.domain.model.Register;
+import com.sevenine.api.futecopa.domain.model.Registered;
 import com.sevenine.api.futecopa.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

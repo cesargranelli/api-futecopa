@@ -1,7 +1,7 @@
-package com.sevenine.api.futecopa.interactors;
+package com.sevenine.api.futecopa.domain.port.service;
 
 import com.sevenine.api.futecopa.entities.Login;
-import com.sevenine.api.futecopa.entities.Register;
+import com.sevenine.api.futecopa.domain.model.Register;
 import com.sevenine.api.futecopa.entities.User;
 
 public interface UserService {

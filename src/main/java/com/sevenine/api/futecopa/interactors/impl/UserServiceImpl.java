@@ -2,7 +2,7 @@ package com.sevenine.api.futecopa.interactors.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.api.futecopa.datasources.jpa.entities.UserData;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
 import com.sevenine.api.futecopa.datasources.firestore.exceptions.FirebaseAuthException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;

@@ -1,48 +1,41 @@
-package com.sevenine.api.futecopa.interactors.impl;
+package com.sevenine.api.futecopa.adapter.rest.firebase;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.api.futecopa.datasources.firebase.entities.Registered;
+import com.sevenine.api.futecopa.adapter.rest.firebase.payload.RegisteredPayload;
 import com.sevenine.api.futecopa.datasources.firestore.exceptions.FirebaseAuthException;
-import com.sevenine.api.futecopa.datasources.jpa.entities.UserData;
-import com.sevenine.api.futecopa.datasources.jpa.repository.UserRepository;
-import com.sevenine.api.futecopa.entities.Register;
-import com.sevenine.api.futecopa.entities.User;
-import com.sevenine.api.futecopa.interactors.UserService;
-import com.sevenine.api.futecopa.interactors.mapper.UserMapper;
+import com.sevenine.api.futecopa.domain.model.Register;
+import com.sevenine.api.futecopa.domain.model.Registered;
+import com.sevenine.api.futecopa.domain.port.rest.UserRest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
-@Service
-public class RegisterServiceImpl implements UserService {
-
-    private final UserRepository repository;
-
-    private final ObjectMapper objectMapper;
+@Component
+public class RegisterFirebaseRest implements UserRest {
 
     private final RestTemplate restTemplate;
 
+    private final ObjectMapper mapper;
+
     @Override
-    public User register(Register register) {
+    public Registered register(Register register) {
         try {
-            ResponseEntity<Registered> registered =
+            ResponseEntity<RegisteredPayload> registered =
                     restTemplate.exchange("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCVQjL7W-pp3xSXeXhcQEjF14zzEM11GO0",
                             HttpMethod.POST, new HttpEntity<>(register), new ParameterizedTypeReference<>() {
                             });
 
-            UserData userData = UserMapper.INSTANCE.toUserData(register, registered.getBody());
-
-            return UserMapper.INSTANCE.toUser(repository.save(userData));
+            return mapper.convertValue(registered.getBody(), Registered.class);
         } catch (HttpClientErrorException e) {
             try {
-                FirebaseAuthException firebaseAuthException = objectMapper.readValue(e.getResponseBodyAsString(), FirebaseAuthException.class);
+                FirebaseAuthException firebaseAuthException = mapper.readValue(e.getResponseBodyAsString(), FirebaseAuthException.class);
                 throw new RuntimeException(firebaseAuthException);
             } catch (JsonProcessingException ex) {
                 throw new RuntimeException(ex);

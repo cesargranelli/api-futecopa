@@ -1,12 +1,9 @@
-package com.sevenine.api.futecopa.transportlayers.api;
+package com.sevenine.api.futecopa.transportlayers.rest;
 
 import com.sevenine.api.futecopa.datasources.firestore.entities.Guess;
 import com.sevenine.api.futecopa.interactors.GuessService;
-import com.sevenine.api.futecopa.interactors.PalpiteListaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping("guesses")
@@ -14,7 +11,7 @@ import java.util.List;
 public class GuessApi {
 
     private final GuessService service;
-    private final PalpiteListaService listaService;
+//    private final PalpiteListaService listaService;
 
     @PostMapping
     public Object create(@RequestBody Guess guess) {
@@ -26,9 +23,9 @@ public class GuessApi {
         return service.findBy(slug, matchDay);
     }
 
-    @GetMapping("listar")
-    public List<Guess> listar(@RequestHeader String apelido, @RequestHeader String rodada) {
-        return listaService.executar(apelido, rodada);
-    }
+//    @GetMapping("listar")
+//    public List<Guess> listar(@RequestHeader String apelido, @RequestHeader String rodada) {
+//        return listaService.executar(apelido, rodada);
+//    }
 
 }

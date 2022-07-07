@@ -1,6 +1,6 @@
-package com.sevenine.api.futecopa.datasources.jpa.repository;
+package com.sevenine.api.futecopa.adapter.persistence.jpa.repository;
 
-import com.sevenine.api.futecopa.datasources.jpa.entities.UserData;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserData, Long> {

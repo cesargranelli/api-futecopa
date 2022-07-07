@@ -1,22 +1,22 @@
-package com.sevenine.api.futecopa.transportlayers.api;
+package com.sevenine.api.futecopa.adapter.controller;
 
 import com.sevenine.api.futecopa.entities.Login;
-import com.sevenine.api.futecopa.entities.Register;
+import com.sevenine.api.futecopa.domain.model.Register;
 import com.sevenine.api.futecopa.entities.User;
-import com.sevenine.api.futecopa.interactors.UserService;
+import com.sevenine.api.futecopa.domain.port.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("users")
 @RestController
-public class UserApi {
+public class UserController {
 
     private final UserService service;
 
     @PostMapping("register")
     public User register(@RequestBody Register register) {
-        return (User) service.register(register);
+        return service.register(register);
     }
 
     @PostMapping("login")

@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.datasources.jpa.entities;
+package com.sevenine.api.futecopa.adapter.persistence.jpa.data;
 
 import lombok.Getter;
 import lombok.Setter;

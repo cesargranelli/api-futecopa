@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.transportlayers.api;
+package com.sevenine.api.futecopa.transportlayers.rest;
 
 import com.sevenine.api.futecopa.datasources.firestore.entities.Round;
 import com.sevenine.api.futecopa.interactors.RoundService;
