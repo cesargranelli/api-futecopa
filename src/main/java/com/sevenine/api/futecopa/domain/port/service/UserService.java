@@ -1,18 +1,14 @@
 package com.sevenine.api.futecopa.domain.port.service;
 
-import com.sevenine.api.futecopa.entities.Login;
+import com.sevenine.api.futecopa.domain.model.Login;
 import com.sevenine.api.futecopa.domain.model.Register;
 import com.sevenine.api.futecopa.entities.User;
 
 public interface UserService {
 
-    default User register(Register register) {
-        return new User();
-    }
+    User register(Register register);
 
-    default User login(Login login) {
-        return new User();
-    }
+    User login(Login login);
 
     default User findByUid(String uid) {
         return new User();

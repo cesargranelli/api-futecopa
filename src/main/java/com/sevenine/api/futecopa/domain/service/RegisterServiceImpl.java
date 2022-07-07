@@ -2,6 +2,8 @@ package com.sevenine.api.futecopa.domain.service;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.UserRepository;
+import com.sevenine.api.futecopa.domain.model.Login;
+import com.sevenine.api.futecopa.domain.model.Logon;
 import com.sevenine.api.futecopa.domain.model.Register;
 import com.sevenine.api.futecopa.domain.model.Registered;
 import com.sevenine.api.futecopa.domain.port.rest.UserRest;
@@ -26,6 +28,13 @@ public class RegisterServiceImpl implements UserService {
         UserData userData = UserMapper.INSTANCE.toUserData(register, registered);
 
         return UserMapper.INSTANCE.toUser(repository.save(userData));
+    }
+
+    @Override
+    public User login(Login login) {
+        Logon logon = userRest.login(login);
+
+        return UserMapper.INSTANCE.toUser(repository.findByUid(logon.getLocalId()));
     }
 
 }

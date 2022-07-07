@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.entities;
+package com.sevenine.api.futecopa.domain.model;
 
 import lombok.Getter;
 import lombok.Setter;
