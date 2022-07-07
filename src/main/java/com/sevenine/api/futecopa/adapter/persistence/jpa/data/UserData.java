@@ -2,6 +2,7 @@ package com.sevenine.api.futecopa.adapter.persistence.jpa.data;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 
@@ -24,5 +25,9 @@ public class UserData {
     private Integer position;
     private Integer round;
     private Integer total;
+
+    public void setSlug(String nickname) {
+        slug = StringUtils.lowerCase(StringUtils.replace(nickname, " ", "-"));
+    }
 
 }

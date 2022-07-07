@@ -2,8 +2,8 @@ package com.sevenine.api.futecopa.adapter.controller;
 
 import com.sevenine.api.futecopa.domain.model.Login;
 import com.sevenine.api.futecopa.domain.model.Register;
+import com.sevenine.api.futecopa.domain.model.User;
 import com.sevenine.api.futecopa.domain.port.service.UserService;
-import com.sevenine.api.futecopa.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

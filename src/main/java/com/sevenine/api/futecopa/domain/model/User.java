@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.entities;
+package com.sevenine.api.futecopa.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

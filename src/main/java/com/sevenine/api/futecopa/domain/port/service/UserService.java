@@ -2,7 +2,7 @@ package com.sevenine.api.futecopa.domain.port.service;
 
 import com.sevenine.api.futecopa.domain.model.Login;
 import com.sevenine.api.futecopa.domain.model.Register;
-import com.sevenine.api.futecopa.entities.User;
+import com.sevenine.api.futecopa.domain.model.User;
 
 public interface UserService {
 
@@ -10,12 +10,8 @@ public interface UserService {
 
     User login(Login login);
 
-    default User findByUid(String uid) {
-        return new User();
-    }
+    User findByUid(String uid);
 
-    default User findBySlug(String slug) {
-        return new User();
-    }
+    User findBySlug(String slug);
 
 }
