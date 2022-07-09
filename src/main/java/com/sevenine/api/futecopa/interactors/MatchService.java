@@ -1,9 +1,8 @@
 package com.sevenine.api.futecopa.interactors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.api.futecopa.datasources.apifootball.ApiFootballClient;
+import com.sevenine.api.futecopa.adapter.rest.apifootball.client.ApiFootballClient;
 import com.sevenine.api.futecopa.datasources.firestore.entities.MatchDay;
-import com.sevenine.api.futecopa.datasources.firestore.repositories.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

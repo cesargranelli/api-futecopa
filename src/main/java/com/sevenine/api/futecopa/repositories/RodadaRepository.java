@@ -1,7 +1,7 @@
 package com.sevenine.api.futecopa.repositories;
 
 import com.sevenine.api.futecopa.entities.Rodada;
-import com.sevenine.api.futecopa.domain.model.Round;
+import com.sevenine.api.futecopa.application.domain.entities.Round;
 
 import java.util.List;
 

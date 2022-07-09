@@ -1,7 +1,7 @@
 package com.sevenine.api.futecopa.mapper;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.RoundData;
-import com.sevenine.api.futecopa.domain.model.Round;
+import com.sevenine.api.futecopa.application.domain.entities.Round;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;

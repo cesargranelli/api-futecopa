@@ -1,8 +1,8 @@
 package com.sevenine.api.futecopa.adapter.controller;
 
-import com.sevenine.api.futecopa.domain.model.Game;
-import com.sevenine.api.futecopa.domain.model.Guess;
-import com.sevenine.api.futecopa.domain.port.service.GuessService;
+import com.sevenine.api.futecopa.application.domain.entities.Game;
+import com.sevenine.api.futecopa.application.domain.entities.Guess;
+import com.sevenine.api.futecopa.application.usecases.GuessService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

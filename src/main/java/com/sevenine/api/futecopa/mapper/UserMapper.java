@@ -1,9 +1,9 @@
 package com.sevenine.api.futecopa.mapper;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
-import com.sevenine.api.futecopa.domain.model.Register;
-import com.sevenine.api.futecopa.domain.model.Registered;
-import com.sevenine.api.futecopa.domain.model.User;
+import com.sevenine.api.futecopa.application.domain.entities.Register;
+import com.sevenine.api.futecopa.application.domain.entities.Registered;
+import com.sevenine.api.futecopa.application.domain.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
