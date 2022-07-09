@@ -1,25 +1,27 @@
-package com.sevenine.api.futecopa.transportlayers.rest;
+package com.sevenine.api.futecopa.adapter.controller;
 
-import com.sevenine.api.futecopa.datasources.firestore.entities.Guess;
-import com.sevenine.api.futecopa.interactors.GuessService;
+import com.sevenine.api.futecopa.domain.model.Game;
+import com.sevenine.api.futecopa.domain.model.Guess;
+import com.sevenine.api.futecopa.domain.port.service.GuessService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping("guesses")
 @RestController
-public class GuessApi {
+public class GuessController {
 
     private final GuessService service;
-//    private final PalpiteListaService listaService;
 
     @PostMapping
-    public Object create(@RequestBody Guess guess) {
-        return service.create(guess);
+    public List<Game> save(@RequestBody Guess guess) {
+        return service.save(guess);
     }
 
     @GetMapping
-    public Guess findBy(@RequestHeader String slug, @RequestHeader String matchDay) {
+    public List<Game> findBy(@RequestHeader String slug, @RequestHeader Integer matchDay) {
         return service.findBy(slug, matchDay);
     }
 

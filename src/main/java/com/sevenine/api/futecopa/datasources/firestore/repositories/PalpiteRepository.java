@@ -1,6 +1,6 @@
 package com.sevenine.api.futecopa.datasources.firestore.repositories;
 
-import com.sevenine.api.futecopa.datasources.firestore.entities.Guess;
+import com.sevenine.api.futecopa.domain.model.Guess;
 
 import java.util.List;
 

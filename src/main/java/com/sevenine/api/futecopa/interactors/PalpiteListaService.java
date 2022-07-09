@@ -1,10 +1,10 @@
 //package com.sevenine.api.futecopa.interactors;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.sevenine.api.futecopa.datasources.firestore.entities.Guess;
+//import com.sevenine.api.futecopa.domain.model.Guess;
 //import com.sevenine.api.futecopa.datasources.firestore.repositories.PalpiteRepository;
 //import com.sevenine.api.futecopa.entities.Rodada;
-//import com.sevenine.api.futecopa.datasources.firestore.repositories.GuessRepository;
+//import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 //import com.sevenine.api.futecopa.repositories.RodadaRepository;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.web.bind.annotation.RestController;
