@@ -6,12 +6,12 @@ import com.sevenine.api.futecopa.application.domain.entities.Round;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.RoundPersistence;
 import com.sevenine.api.futecopa.mapper.RoundMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@Service
+@Component
 public class RoundPersistenceList implements RoundPersistence<Object, List<Round>> {
 
     private final RoundRepository repository;

@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Score {
+    private Long id;
     private String winner;
     private String duration;
     private Integer home;
