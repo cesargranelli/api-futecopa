@@ -7,7 +7,7 @@ import com.google.cloud.firestore.QuerySnapshot;
 import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotListValidator;
 import com.sevenine.api.futecopa.datasources.firebase.validator.QuerySnapshotValidator;
 import com.sevenine.api.futecopa.entities.Rodada;
-import com.sevenine.api.futecopa.entities.Round;
+import com.sevenine.api.futecopa.application.domain.entities.Round;
 import com.sevenine.api.futecopa.repositories.RodadaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -5,12 +5,33 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  cloud:
+    config:
+      enabled: false
+    gcp:
+      firestore:
+        project-id: copa-app-9057a
+      credentials:
+        location: src/main/resources/google-credentials.json
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-107-22-238-112.compute-1.amazonaws.com:5432/d2bpth7sigg1gu
+    username: kjvshfmjpordww
+    password: f03383c3c9fc95318866c34ba62e832d0fb95e7fdff70b1381adbc55629f9ce3
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
 
 logbook:
   exclude:
     - /actuator/health
-  filter.enabled: true
-  format.style: json
+  filter:
+    enabled: true
+  format:
+    style: json
   obfuscate:
     headers:
       - Authorization
@@ -29,9 +50,26 @@ logging:
       springframework: INFO
       zalando:
         logbook: TRACE
+    api-football: DEBUG
 
 firebase:
   app: https://copa-app-9057a.firebaseio.com
+
+api-football:
+  competition-code: WC
+  season-code: 2022
+  api: https://api.football-data.org/v4
+  resources:
+    matches: /competitions/${api-football.competition-code}/matches
+
+feign:
+  client:
+    config:
+      api-football:
+        defaultRequestHeaders:
+          X-Auth-Token: 40d549b19b7b4b1e89064ef42c71da62
+      default:
+        loggerLevel: full
 
 sofascore:
   torneio:
