@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.application.services;
+package com.sevenine.api.futecopa.application.usecases;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,6 +6,9 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
+import com.sevenine.api.futecopa.application.services.GuessService;
+import com.sevenine.api.futecopa.application.services.MatchService;
+import com.sevenine.api.futecopa.application.usecases.MatchServiceMatchDayList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

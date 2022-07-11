@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.application.services;
+package com.sevenine.api.futecopa.application.usecases;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.MatchRepository;
@@ -6,6 +6,7 @@ import com.sevenine.api.futecopa.adapter.rest.apifootball.client.ApiFootballClie
 import com.sevenine.api.futecopa.adapter.rest.apifootball.entities.MatchesApi;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
 import com.sevenine.api.futecopa.application.mapper.MatchMapper;
+import com.sevenine.api.futecopa.application.services.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

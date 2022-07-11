@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.mapper;
+package com.sevenine.api.futecopa.application.mapper;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
 import com.sevenine.api.futecopa.application.domain.entities.Register;

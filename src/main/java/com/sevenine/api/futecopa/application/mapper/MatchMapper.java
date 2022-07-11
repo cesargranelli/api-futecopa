@@ -14,10 +14,10 @@ public interface MatchMapper {
 
     MatchMapper INSTANCE = Mappers.getMapper(MatchMapper.class);
 
-    @Named(value = "toMatchesApi")
+    @Named(value = "fromMatchesApi")
     Match fromMatchApi(MatchApi matchApi);
 
-    @IterableMapping(qualifiedByName = "toMatchesApi")
+    @IterableMapping(qualifiedByName = "fromMatchesApi")
     List<Match> fromMatchesApi(List<MatchApi> matchesApi);
 
 }
