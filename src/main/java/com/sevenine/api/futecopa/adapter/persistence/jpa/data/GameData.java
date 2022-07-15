@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "Game")
 @Table(name = "games")
 public class GameData {
 
@@ -35,12 +35,7 @@ public class GameData {
     @CreationTimestamp
     private LocalDateTime lastUpdated;
 
-//    @JoinTable(
-//            name = "guesses_games",
-//            joinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "guess_id", referencedColumnName = "id")
-//    )
-//    @ManyToOne
-//    private GuessData guess;
+    @ManyToOne
+    private GuessData guess;
 
 }

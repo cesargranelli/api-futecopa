@@ -19,10 +19,10 @@ public interface GameMapper {
     @IterableMapping(qualifiedByName = "fromGamesData")
     List<Game> fromGamesData(List<GameData> gamesData);
 
-    @Mapping(target = "game.id", ignore = true)
+    @Mapping(target = "guess", ignore = true)
+    @Mapping(target = "gameData.id", ignore = true)
+    @Mapping(target = "gameData.score.id", ignore = true)
     @Mapping(target = "lastUpdated", expression = "java(LocalDateTime.now())")
-    @Mapping(target = "score.home", source = "score.home")
-    @Mapping(target = "score.away", source = "score.away")
     @Mapping(target = "matchId", source = "game.id")
     void updateScores(Game game, @MappingTarget GameData gameData);
 

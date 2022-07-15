@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "Result")
 @Table(name = "results")
 public class ResultData {
 

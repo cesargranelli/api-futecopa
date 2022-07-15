@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "Guess")
 @Table(name = "guesses")
 public class GuessData {
 
@@ -20,12 +20,7 @@ public class GuessData {
 
     private Integer matchDay;
 
-    @JoinTable(
-            name = "guesses_games",
-            joinColumns = @JoinColumn(name = "guess_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id")
-    )
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "guess", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GameData> games;
 
 }

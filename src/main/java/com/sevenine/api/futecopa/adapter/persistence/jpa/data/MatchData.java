@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "Match")
 @Table(name = "matches")
 public class MatchData {
 

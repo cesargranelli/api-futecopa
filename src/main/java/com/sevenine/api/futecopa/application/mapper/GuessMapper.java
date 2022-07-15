@@ -17,8 +17,9 @@ public interface GuessMapper {
 
     GuessMapper INSTANCE = Mappers.getMapper(GuessMapper.class);
 
-    @Mapping(target = "matchId", source = "game.id")
+    @Mapping(target = "guess", ignore = true)
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "matchId", source = "game.id")
     @Named(value = "toGamesData")
     GameData toGameData(Game game);
 

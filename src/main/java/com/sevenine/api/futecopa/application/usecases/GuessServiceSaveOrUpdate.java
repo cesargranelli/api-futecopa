@@ -1,6 +1,5 @@
 package com.sevenine.api.futecopa.application.usecases;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
@@ -33,14 +32,13 @@ public class GuessServiceSaveOrUpdate implements GuessService<Object, List<Game>
             guessRepository.save(GuessMapper.INSTANCE.toGuessData(guess));
         } else {
             optional.get().getGames().forEach(gameData -> guess.getGames().stream()
-                    .filter(game -> game.getId().equals(gameData.getId())).findAny()
+                    .filter(game -> game.getId().equals(gameData.getMatchId())).findAny()
                     .ifPresent(game -> GameMapper.INSTANCE.updateScores(game, gameData)));
 
             guessRepository.flush();
         }
 
-        return mapper.convertValue(guessRepository.findAll().get(0).getGames(), new TypeReference<>() {
-        });
+        return GameMapper.INSTANCE.fromGamesData(guessRepository.findAll().get(0).getGames());
     }
 
 }
