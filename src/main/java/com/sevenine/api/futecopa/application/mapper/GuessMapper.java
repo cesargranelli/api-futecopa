@@ -1,8 +1,13 @@
 package com.sevenine.api.futecopa.application.mapper;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GameData;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
-import org.mapstruct.*;
+import com.sevenine.api.futecopa.application.domain.entities.Guess;
+import org.mapstruct.IterableMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -12,16 +17,15 @@ public interface GuessMapper {
 
     GuessMapper INSTANCE = Mappers.getMapper(GuessMapper.class);
 
-    @Named(value = "fromGamesData")
-    Game fromGameData(GameData gameData);
+    @Mapping(target = "matchId", source = "game.id")
+    @Mapping(target = "id", ignore = true)
+    @Named(value = "toGamesData")
+    GameData toGameData(Game game);
 
-    @IterableMapping(qualifiedByName = "fromGamesData")
-    List<Game> fromGamesData(List<GameData> gamesData);
+    @IterableMapping(qualifiedByName = "toGamesData")
+    List<GameData> toGamesData(List<Game> game);
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "lastUpdated", expression = "java(LocalDateTime.now())")
-    @Mapping(target = "score.home", source = "score.home")
-    @Mapping(target = "score.away", source = "score.away")
-    void updateScores(Game game, @MappingTarget GameData gameData);
+    GuessData toGuessData(Guess guess);
 
 }

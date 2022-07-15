@@ -6,9 +6,9 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
+import com.sevenine.api.futecopa.application.mapper.GameMapper;
 import com.sevenine.api.futecopa.application.services.GuessService;
 import com.sevenine.api.futecopa.application.services.MatchService;
-import com.sevenine.api.futecopa.application.usecases.MatchServiceMatchDayList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -39,8 +39,7 @@ public class GuessServiceFindByMatchDay implements GuessService<Object, List<Gam
             return mapper.convertValue(matches, new TypeReference<>() {
             });
         } else {
-            return mapper.convertValue(guessDataOptional.get().getGames(), new TypeReference<>() {
-            });
+            return GameMapper.INSTANCE.fromGamesData(guessDataOptional.get().getGames());
         }
     }
 

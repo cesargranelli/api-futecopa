@@ -1,7 +1,5 @@
 package com.sevenine.api.futecopa.application.usecases;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.MatchRepository;
 import com.sevenine.api.futecopa.adapter.rest.apifootball.client.ApiFootballClient;
 import com.sevenine.api.futecopa.adapter.rest.apifootball.entities.MatchesApi;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
@@ -16,11 +14,7 @@ import java.util.List;
 @Component
 public class MatchServiceMatchDayList implements MatchService<Object, List<Match>> {
 
-    private final MatchRepository matchRepository;
-
     private final ApiFootballClient apiFootballClient;
-
-    private final ObjectMapper mapper;
 
     @Override
     public List<Match> execute(Object... objects) {

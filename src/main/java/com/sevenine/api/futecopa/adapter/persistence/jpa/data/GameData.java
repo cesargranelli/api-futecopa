@@ -14,7 +14,10 @@ import java.time.LocalDateTime;
 public class GameData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long matchId;
 
     private Integer matchDay;
 
@@ -31,5 +34,13 @@ public class GameData {
 
     @CreationTimestamp
     private LocalDateTime lastUpdated;
+
+//    @JoinTable(
+//            name = "guesses_games",
+//            joinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "guess_id", referencedColumnName = "id")
+//    )
+//    @ManyToOne
+//    private GuessData guess;
 
 }

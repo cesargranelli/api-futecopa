@@ -6,6 +6,7 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
 import com.sevenine.api.futecopa.application.domain.entities.Guess;
+import com.sevenine.api.futecopa.application.mapper.GameMapper;
 import com.sevenine.api.futecopa.application.mapper.GuessMapper;
 import com.sevenine.api.futecopa.application.services.GuessService;
 import lombok.RequiredArgsConstructor;
@@ -29,11 +30,11 @@ public class GuessServiceSaveOrUpdate implements GuessService<Object, List<Game>
         Optional<GuessData> optional = guessRepository.findBySlugAndMatchDay(guess.getSlug(), guess.getMatchDay());
 
         if (optional.isEmpty()) {
-            guessRepository.save(mapper.convertValue(guess, GuessData.class));
+            guessRepository.save(GuessMapper.INSTANCE.toGuessData(guess));
         } else {
             optional.get().getGames().forEach(gameData -> guess.getGames().stream()
                     .filter(game -> game.getId().equals(gameData.getId())).findAny()
-                    .ifPresent(game -> GuessMapper.INSTANCE.updateScores(game, gameData)));
+                    .ifPresent(game -> GameMapper.INSTANCE.updateScores(game, gameData)));
 
             guessRepository.flush();
         }

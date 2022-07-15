@@ -8,6 +8,7 @@ import lombok.Setter;
 public class Game {
     private Long id;
     private String utcDate;
+    private String lastUpdated;
     private Integer matchDay;
     private Team homeTeam;
     private Team awayTeam;

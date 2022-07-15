@@ -22,10 +22,10 @@ public class GuessData {
 
     @JoinTable(
             name = "guesses_games",
-            joinColumns = @JoinColumn(name = "guess_id"),
-            inverseJoinColumns = @JoinColumn(name = "game_id")
+            joinColumns = @JoinColumn(name = "guess_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id")
     )
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GameData> games;
 
 }
