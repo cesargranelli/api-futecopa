@@ -4,7 +4,7 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.data.RoundData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.RoundRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Round;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.RoundPersistence;
-import com.sevenine.api.futecopa.application.mapper.RoundMapper;
+import com.sevenine.api.futecopa.application.mappers.RoundMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

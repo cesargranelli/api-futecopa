@@ -5,9 +5,9 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
 import com.sevenine.api.futecopa.application.domain.entities.Guess;
-import com.sevenine.api.futecopa.application.mapper.GameMapper;
-import com.sevenine.api.futecopa.application.mapper.GuessMapper;
-import com.sevenine.api.futecopa.application.services.GuessService;
+import com.sevenine.api.futecopa.application.mappers.GameMapper;
+import com.sevenine.api.futecopa.application.mappers.GuessMapper;
+import com.sevenine.api.futecopa.application.domain.ports.persistence.GuessPersistence;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class GuessServiceSaveOrUpdate implements GuessService<Object, List<Game>> {
+public class GuessPersistenceSaveOrUpdate implements GuessPersistence<Object, List<Game>> {
 
     private final GuessRepository guessRepository;
 

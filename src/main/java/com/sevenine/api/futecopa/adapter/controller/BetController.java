@@ -1,7 +1,7 @@
 package com.sevenine.api.futecopa.adapter.controller;
 
 import com.sevenine.api.futecopa.application.domain.entities.Bet;
-import com.sevenine.api.futecopa.application.services.BetPersistence;
+import com.sevenine.api.futecopa.application.domain.ports.services.BetPersistence;
 import com.sevenine.api.futecopa.application.usecases.BetPersistenceGameList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

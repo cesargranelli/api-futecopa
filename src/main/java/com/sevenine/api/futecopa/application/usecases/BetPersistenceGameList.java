@@ -1,20 +1,17 @@
 package com.sevenine.api.futecopa.application.usecases;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GameData;
-import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
-import com.sevenine.api.futecopa.adapter.persistence.jpa.data.UserData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GameRepository;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.UserRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Bet;
-import com.sevenine.api.futecopa.application.mapper.BetMapper;
-import com.sevenine.api.futecopa.application.services.BetPersistence;
+import com.sevenine.api.futecopa.application.mappers.BetMapper;
+import com.sevenine.api.futecopa.application.domain.ports.services.BetPersistence;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Component

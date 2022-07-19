@@ -1,4 +1,4 @@
-package com.sevenine.api.futecopa.application.mapper;
+package com.sevenine.api.futecopa.application.mappers;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GameData;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;

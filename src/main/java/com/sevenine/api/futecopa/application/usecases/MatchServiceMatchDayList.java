@@ -4,7 +4,7 @@ import com.sevenine.api.futecopa.adapter.rest.apifootball.client.ApiFootballClie
 import com.sevenine.api.futecopa.adapter.rest.apifootball.entities.MatchesApi;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.MatchPersistence;
-import com.sevenine.api.futecopa.application.services.MatchService;
+import com.sevenine.api.futecopa.application.domain.ports.services.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

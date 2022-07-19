@@ -7,7 +7,7 @@ import com.sevenine.api.futecopa.application.domain.entities.Registered;
 import com.sevenine.api.futecopa.application.domain.entities.User;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.UserPersistence;
 import com.sevenine.api.futecopa.application.domain.ports.rest.UserRest;
-import com.sevenine.api.futecopa.application.mapper.UserMapper;
+import com.sevenine.api.futecopa.application.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

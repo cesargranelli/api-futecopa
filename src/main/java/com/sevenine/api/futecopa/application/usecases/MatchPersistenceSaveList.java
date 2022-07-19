@@ -5,7 +5,7 @@ import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.MatchReposit
 import com.sevenine.api.futecopa.adapter.rest.apifootball.entities.MatchApi;
 import com.sevenine.api.futecopa.application.domain.entities.Match;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.MatchPersistence;
-import com.sevenine.api.futecopa.application.mapper.MatchMapper;
+import com.sevenine.api.futecopa.application.mappers.MatchMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
