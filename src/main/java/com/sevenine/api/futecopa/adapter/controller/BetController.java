@@ -19,9 +19,9 @@ public class BetController {
     private final List<BetPersistence<Object, List<Bet>>> services;
 
     @GetMapping
-    public List<Bet> findBy(@RequestHeader Integer matchId) {
+    public List<Bet> findBy(@RequestHeader Long matchId, @RequestHeader Integer matchDay) {
         return services.stream().filter(object -> object instanceof BetPersistenceGameList).findAny().orElseThrow()
-                .execute(matchId);
+                .execute(matchId, matchDay);
     }
 
 }

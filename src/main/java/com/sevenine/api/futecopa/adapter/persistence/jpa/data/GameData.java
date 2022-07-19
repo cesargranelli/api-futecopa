@@ -21,10 +21,10 @@ public class GameData {
 
     private Integer matchDay;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private TeamData homeTeam;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private TeamData awayTeam;
 
     @OneToOne(cascade = CascadeType.ALL)

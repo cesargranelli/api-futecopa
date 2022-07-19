@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GameRepository extends JpaRepository<GameData, Long> {
-    Optional<List<GameData>> findByMatchId(Integer gameId);
+    Optional<List<GameData>> findByMatchId(Long matchId);
 }

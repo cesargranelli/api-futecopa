@@ -15,18 +15,18 @@ import java.util.List;
 @RestController
 public class GuessController {
 
-    private final List<GuessService<Object, List<Game>>> services;
-
-    @PostMapping
-    public List<Game> save(@RequestBody Guess guess) {
-        return services.stream().filter(object -> object instanceof GuessServiceSaveOrUpdate).findAny().orElseThrow()
-                .execute(guess);
-    }
-
-    @GetMapping
-    public List<Game> findBy(@RequestHeader String slug, @RequestHeader Integer matchDay) {
-        return services.stream().filter(object -> object instanceof GuessServiceFindByMatchDay).findAny().orElseThrow()
-                .execute(slug, matchDay);
-    }
+//    private final List<GuessService<Object, List<Game>>> services;
+//
+//    @PostMapping
+//    public List<Game> save(@RequestBody Guess guess) {
+//        return services.stream().filter(object -> object instanceof GuessServiceSaveOrUpdate).findAny().orElseThrow()
+//                .execute(guess);
+//    }
+//
+//    @GetMapping
+//    public List<Game> findBy(@RequestHeader String slug, @RequestHeader Integer matchDay) {
+//        return services.stream().filter(object -> object instanceof GuessServiceFindByMatchDay).findAny().orElseThrow()
+//                .execute(slug, matchDay);
+//    }
 
 }
