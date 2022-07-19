@@ -6,21 +6,18 @@ import com.sevenine.api.futecopa.application.domain.entities.Match;
 import com.sevenine.api.futecopa.application.domain.ports.persistence.MatchPersistence;
 import com.sevenine.api.futecopa.application.mapper.MatchMapper;
 import com.sevenine.api.futecopa.application.services.MatchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Component
 public class MatchPersistenceFindByMatchDayList implements MatchPersistence<Object, List<Match>> {
 
     private final MatchRepository repository;
 
     private final List<MatchService<Object, List<Match>>> services;
-
-    public MatchPersistenceFindByMatchDayList(MatchRepository repository, List<MatchService<Object, List<Match>>> services) {
-        this.repository = repository;
-        this.services = services;
-    }
 
     @Override
     public List<Match> execute(Object... objects) {
