@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class ScoreData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "scores_id_seq")
     private Long id;
 
     private String winner;

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class TimeData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "times_id_seq")
     private Long id;
 
     private String home;

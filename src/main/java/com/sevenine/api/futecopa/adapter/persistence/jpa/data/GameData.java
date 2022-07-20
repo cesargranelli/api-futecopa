@@ -14,19 +14,22 @@ import java.time.LocalDateTime;
 public class GameData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "games_id_seq")
     private Long id;
 
     private Long matchId;
 
     private Integer matchDay;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "home_team_id", foreignKey = @ForeignKey(name = "games_home_team_id_fk"))
+    @ManyToOne(cascade = CascadeType.DETACH)
     private TeamData homeTeam;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "away_team_id", foreignKey = @ForeignKey(name = "games_away_team_id_fk"))
+    @ManyToOne(cascade = CascadeType.DETACH)
     private TeamData awayTeam;
 
+    @JoinColumn(name = "score_id", foreignKey = @ForeignKey(name = "games_score_id_fk"))
     @OneToOne(cascade = CascadeType.ALL)
     private ScoreData score;
 
@@ -35,7 +38,11 @@ public class GameData {
     @CreationTimestamp
     private LocalDateTime lastUpdated;
 
-    @ManyToOne
+    @JoinTable(name = "guesses_games",
+            joinColumns = @JoinColumn(name = "guess_id", foreignKey = @ForeignKey(name = "guesses_games_guess_id_fk")),
+            inverseJoinColumns = @JoinColumn(name = "game_id", foreignKey = @ForeignKey(name = "guesses_games_game_id_fk"))
+    )
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private GuessData guess;
 
 }

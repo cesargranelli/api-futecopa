@@ -13,14 +13,17 @@ import java.time.LocalDate;
 public class RoundData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "rounds_id_seq")
     private Long id;
 
     private Integer matchDay;
     private String name;
     private String stage;
     private LocalDate start;
+
+    @Column(name = "`end`")
     private LocalDate end;
+
     private String status;
 
 }

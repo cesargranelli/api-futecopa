@@ -13,14 +13,18 @@ import java.util.List;
 public class GuessData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "guesses_id_seq")
     private Long id;
 
     private String slug;
 
     private Integer matchDay;
 
-    @OneToMany(mappedBy = "guess", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(name = "guesses_games",
+            joinColumns = @JoinColumn(name = "game_id", foreignKey = @ForeignKey(name = "guesses_games_game_id_fk")),
+            inverseJoinColumns = @JoinColumn(name = "guess_id", foreignKey = @ForeignKey(name = "guesses_games_guess_id_fk"))
+    )
+    @OneToMany(cascade = CascadeType.ALL)
     private List<GameData> games;
 
 }
