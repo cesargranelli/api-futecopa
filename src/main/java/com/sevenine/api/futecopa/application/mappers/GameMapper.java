@@ -2,6 +2,7 @@ package com.sevenine.api.futecopa.application.mappers;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GameData;
 import com.sevenine.api.futecopa.application.domain.entities.Game;
+import com.sevenine.api.futecopa.application.domain.entities.Match;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
@@ -26,4 +27,5 @@ public interface GameMapper {
     @Mapping(target = "matchId", source = "game.id")
     void updateScores(Game game, @MappingTarget GameData gameData);
 
+    List<Game> fromMatches(List<Match> matches);
 }

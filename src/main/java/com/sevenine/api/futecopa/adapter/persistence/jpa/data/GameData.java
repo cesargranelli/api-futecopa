@@ -42,7 +42,7 @@ public class GameData {
             joinColumns = @JoinColumn(name = "guess_id", foreignKey = @ForeignKey(name = "guesses_games_guess_id_fk")),
             inverseJoinColumns = @JoinColumn(name = "game_id", foreignKey = @ForeignKey(name = "guesses_games_game_id_fk"))
     )
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne
     private GuessData guess;
 
 }
