@@ -32,7 +32,7 @@ public class GuessPersistenceUpdate implements GuessPersistence<Object, List<Gam
             repository.flush();
         });
 
-        return GameMapper.INSTANCE.fromGamesData(repository.findAll().get(0).getGames());
+        return GameMapper.INSTANCE.toGames(repository.findAll().get(0).getGames());
     }
 
 }

@@ -15,10 +15,10 @@ public interface GameMapper {
 
     @Mapping(target = "id", source = "matchId")
     @Named(value = "fromGamesData")
-    Game fromGameData(GameData gameData);
+    Game toGame(GameData gameData);
 
     @IterableMapping(qualifiedByName = "fromGamesData")
-    List<Game> fromGamesData(List<GameData> gamesData);
+    List<Game> toGames(List<GameData> gamesData);
 
     @Mapping(target = "guess", ignore = true)
     @Mapping(target = "gameData.id", ignore = true)

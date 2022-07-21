@@ -23,7 +23,7 @@ public class MatchPersistenceSaveList implements MatchPersistence<Object, List<M
 
         List<MatchData> matchDataList = repository.saveAll(MatchMapper.INSTANCE.toMatchesData(matchApiList));
 
-        return MatchMapper.INSTANCE.fromMatchesData(matchDataList);
+        return MatchMapper.INSTANCE.toMatches(matchDataList);
     }
 
 }

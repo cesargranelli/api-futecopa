@@ -30,7 +30,7 @@ public class MatchPersistenceFindByMatchDayList implements MatchPersistence<Obje
                     .execute(matchDay);
         }
 
-        return MatchMapper.INSTANCE.fromMatchesData(matchDataList);
+        return MatchMapper.INSTANCE.toMatches(matchDataList);
     }
 
 }

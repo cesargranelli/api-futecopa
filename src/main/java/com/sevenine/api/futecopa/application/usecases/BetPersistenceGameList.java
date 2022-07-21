@@ -1,23 +1,24 @@
 package com.sevenine.api.futecopa.application.usecases;
 
 import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GameData;
-import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GameRepository;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.data.GuessData;
+import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.GuessRepository;
 import com.sevenine.api.futecopa.adapter.persistence.jpa.repository.UserRepository;
 import com.sevenine.api.futecopa.application.domain.entities.Bet;
-import com.sevenine.api.futecopa.application.mappers.BetMapper;
 import com.sevenine.api.futecopa.application.domain.ports.services.BetPersistence;
+import com.sevenine.api.futecopa.application.mappers.GameMapper;
+import com.sevenine.api.futecopa.application.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
 public class BetPersistenceGameList implements BetPersistence<Object, List<Bet>> {
 
-    private final GameRepository gameRepository;
+    private final GuessRepository guessRepository;
     private final UserRepository userRepository;
 
     @Override
@@ -25,17 +26,19 @@ public class BetPersistenceGameList implements BetPersistence<Object, List<Bet>>
         Long matchId = (Long) objects[0];
         Integer matchDay = (Integer) objects[1];
 
-        Optional<List<GameData>> optional = gameRepository.findByMatchId(matchId);
-
-//        List<UserData> userDataList =
-//                userRepository.findByAllSlug(optional.get().stream().map(GameData::getGuess)
-//                        .collect(Collectors.toList())
-//                        .stream().map(GuessData::getSlug)
-//                        .collect(Collectors.toList()));
+        List<GuessData> guessDataList = guessRepository.findByMatchDay(matchDay);
 
         List<Bet> bets = new ArrayList<>();
 
-        BetMapper.INSTANCE.insertGameList(optional.orElse(null), bets);
+        guessDataList.forEach(guessData -> {
+            Bet bet = new Bet();
+
+            bet.setUser(UserMapper.INSTANCE.toUser(userRepository.findBySlug(guessData.getSlug())));
+            bet.setGame(GameMapper.INSTANCE.toGame(guessData.getGames().stream().filter(gameData ->
+                    gameData.getMatchId().equals(matchId)).findAny().orElse(new GameData())));
+
+            bets.add(bet);
+        });
 
         return bets;
     }

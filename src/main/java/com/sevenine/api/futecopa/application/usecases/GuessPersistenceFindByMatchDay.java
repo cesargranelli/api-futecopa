@@ -35,7 +35,7 @@ public class GuessPersistenceFindByMatchDay implements GuessPersistence<Object, 
             return GameMapper.INSTANCE.fromMatches(matches);
         }
 
-        return GameMapper.INSTANCE.fromGamesData(optional.orElse(new GuessData()).getGames());
+        return GameMapper.INSTANCE.toGames(optional.orElse(new GuessData()).getGames());
     }
 
 }

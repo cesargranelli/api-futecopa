@@ -24,7 +24,7 @@ public class GuessPersistenceSave implements GuessPersistence<Object, List<Game>
 
         GuessData guessData = guessRepository.save(GuessMapper.INSTANCE.toGuessData(guess));
 
-        return GameMapper.INSTANCE.fromGamesData(guessData.getGames());
+        return GameMapper.INSTANCE.toGames(guessData.getGames());
     }
 
 }

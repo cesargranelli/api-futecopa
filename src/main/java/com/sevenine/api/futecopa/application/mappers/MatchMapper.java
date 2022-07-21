@@ -13,7 +13,7 @@ public interface MatchMapper {
 
     MatchMapper INSTANCE = Mappers.getMapper(MatchMapper.class);
 
-    List<Match> fromMatchesData(List<MatchData> matchesData);
+    List<Match> toMatches(List<MatchData> matchesData);
 
     List<MatchData> toMatchesData(List<MatchApi> matches);
 
