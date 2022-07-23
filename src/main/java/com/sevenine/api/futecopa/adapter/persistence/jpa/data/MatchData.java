@@ -18,16 +18,16 @@ public class MatchData {
     private Integer matchDay;
 
     @JoinColumn(name = "home_team_id", foreignKey = @ForeignKey(name = "matches_home_team_id_fk"))
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     private TeamData homeTeam;
 
     @JoinColumn(name = "away_team_id", foreignKey = @ForeignKey(name = "matches_away_team_id_fk"))
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     private TeamData awayTeam;
 
     @JoinColumn(name = "result_id", foreignKey = @ForeignKey(name = "matches_result_id_fk"))
     @OneToOne(cascade = CascadeType.ALL)
-    private ScoreData score;
+    private ResultData result;
 
     private LocalDateTime utcDate;
     private LocalDateTime lastUpdated;

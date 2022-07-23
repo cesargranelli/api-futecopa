@@ -21,8 +21,8 @@ public class GuessData {
     private Integer matchDay;
 
     @JoinTable(name = "guesses_games",
-            joinColumns = @JoinColumn(name = "game_id"),
-            inverseJoinColumns = @JoinColumn(name = "guess_id")
+            joinColumns = @JoinColumn(name = "guess_id"),
+            inverseJoinColumns = @JoinColumn(name = "game_id")
     )
     @OneToMany(cascade = CascadeType.ALL)
     private List<GameData> games;

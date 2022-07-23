@@ -39,8 +39,8 @@ public class GameData {
     private LocalDateTime lastUpdated;
 
     @JoinTable(name = "guesses_games",
-            joinColumns = @JoinColumn(name = "guess_id"),
-            inverseJoinColumns = @JoinColumn(name = "game_id")
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "guess_id")
     )
     @ManyToOne
     private GuessData guess;
