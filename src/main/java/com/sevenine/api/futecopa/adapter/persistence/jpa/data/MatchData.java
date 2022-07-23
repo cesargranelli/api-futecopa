@@ -25,6 +25,10 @@ public class MatchData {
     @OneToOne(cascade = CascadeType.ALL)
     private TeamData awayTeam;
 
+    @JoinColumn(name = "result_id", foreignKey = @ForeignKey(name = "matches_result_id_fk"))
+    @OneToOne(cascade = CascadeType.ALL)
+    private ScoreData score;
+
     private LocalDateTime utcDate;
     private LocalDateTime lastUpdated;
 

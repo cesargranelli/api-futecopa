@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.api.futecopa.adapter.rest.firebase.payload.LogonPayload;
 import com.sevenine.api.futecopa.adapter.rest.firebase.payload.RegisteredPayload;
-import com.sevenine.api.futecopa.datasources.firestore.exceptions.FirebaseAuthException;
+import com.sevenine.api.futecopa.adapter.rest.firebase.exceptions.FirebaseAuthException;
 import com.sevenine.api.futecopa.application.domain.entities.Login;
 import com.sevenine.api.futecopa.application.domain.entities.Logon;
 import com.sevenine.api.futecopa.application.domain.entities.Register;

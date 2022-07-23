@@ -15,9 +15,9 @@ public class ResultData {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "results_id_seq")
     private Long id;
 
-    private Long matchId;
-
     private String winner;
     private String duration;
+    private Integer home;
+    private Integer away;
 
 }
