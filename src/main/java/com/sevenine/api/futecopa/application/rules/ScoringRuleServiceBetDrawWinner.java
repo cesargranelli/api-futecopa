@@ -20,7 +20,8 @@ public class ScoringRuleServiceBetDrawWinner implements ScoringRuleService<Objec
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (report.getScoreHome().equals(report.getScoreAway()) && !report.getResultHome().equals(report.getResultAway())) {
+        if (report.getScoreWinner().equals(report.getScoreLooser()) &&
+                !report.getResultWinner().equals(report.getResultLooser())) {
             return Scoring.BET_DRAW_WINNER.getPoints();
         }
 

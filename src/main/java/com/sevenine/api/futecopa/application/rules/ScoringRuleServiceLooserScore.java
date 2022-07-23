@@ -20,11 +20,9 @@ public class ScoringRuleServiceLooserScore implements ScoringRuleService<Object,
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (report.getScoreHome() < report.getScoreAway() && report.getScoreHome().equals(report.getResultHome())) {
-            return Scoring.LOOSER_SCORE.getPoints();
-        }
-
-        if (report.getScoreAway() < report.getScoreHome() && report.getScoreAway().equals(report.getResultAway())) {
+        if (report.getScoreWinner() > report.getScoreLooser() &&
+                report.getResultWinner() > report.getResultLooser() &&
+                report.getScoreLooser().equals(report.getResultLooser())) {
             return Scoring.LOOSER_SCORE.getPoints();
         }
 

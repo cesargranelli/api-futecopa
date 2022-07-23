@@ -20,8 +20,9 @@ public class ScoringRuleServiceDifferentScore implements ScoringRuleService<Obje
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (Math.subtractExact(report.getScoreHome(), report.getScoreAway()) ==
-                Math.subtractExact(report.getResultHome(), report.getResultAway())) {
+        if (Math.subtractExact(report.getScoreWinner(), report.getScoreLooser()) ==
+                Math.subtractExact(report.getResultWinner(), report.getResultLooser()) &&
+                report.getWinnerGame().equals(report.getWinnerMatch())) {
             return Scoring.DIFFERENT_SCORE.getPoints();
         }
 

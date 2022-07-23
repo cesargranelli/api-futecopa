@@ -20,8 +20,9 @@ public class ScoringRuleServiceExactScore implements ScoringRuleService<Object, 
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (report.getScoreHome().equals(report.getResultHome()) && report.getScoreAway().equals(report.getResultAway()) &&
-                !report.getScoreHome().equals(report.getResultAway())) {
+        if (report.getScoreWinner().equals(report.getResultWinner()) &&
+                report.getScoreLooser().equals(report.getResultLooser()) &&
+                report.getWinnerGame().equals(report.getWinnerMatch())) {
             return Scoring.EXACT_SCORE.getPoints();
         }
 

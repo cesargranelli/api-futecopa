@@ -20,17 +20,11 @@ public class ScoringRuleServiceWinnerTeam implements ScoringRuleService<Object, 
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (report.getScoreHome() > report.getScoreAway() &&
-                report.getResultHome() > report.getResultAway() &&
-                !report.getScoreHome().equals(report.getResultHome()) &&
-                !report.getScoreAway().equals(report.getResultAway())) {
-            return Scoring.WINNER_TEAM.getPoints();
-        }
-
-        if (report.getScoreAway() > report.getScoreHome() &&
-                report.getResultAway() > report.getResultHome() &&
-                !report.getScoreHome().equals(report.getResultHome()) &&
-                !report.getScoreAway().equals(report.getResultAway())) {
+        if (report.getScoreWinner() > report.getScoreLooser() &&
+                report.getResultWinner() > report.getResultLooser() &&
+                !report.getScoreWinner().equals(report.getResultWinner()) &&
+                !report.getScoreLooser().equals(report.getResultLooser()) &&
+                report.getWinnerGame().equals(report.getWinnerMatch())) {
             return Scoring.WINNER_TEAM.getPoints();
         }
 

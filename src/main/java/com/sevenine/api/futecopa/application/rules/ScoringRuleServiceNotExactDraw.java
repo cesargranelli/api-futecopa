@@ -20,8 +20,9 @@ public class ScoringRuleServiceNotExactDraw implements ScoringRuleService<Object
     public Integer execute(Object... objects) {
         Report report = (Report) objects[0];
 
-        if (report.getScoreHome().equals(report.getScoreAway()) &&
-                !report.getScoreHome().equals(report.getResultHome())) {
+        if (report.getScoreWinner().equals(report.getScoreLooser()) &&
+                report.getScoreWinner().equals(report.getResultWinner()) &&
+                !report.getScoreWinner().equals(report.getResultWinner())) {
             return Scoring.NOT_EXACT_DRAW.getPoints();
         }
 

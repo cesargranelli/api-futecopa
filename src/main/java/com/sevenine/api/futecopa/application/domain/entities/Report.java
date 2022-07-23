@@ -10,9 +10,11 @@ public class Report {
     private String slug;
     private Integer matchDay;
     private Long matchId;
-    private Integer scoreHome;
-    private Integer scoreAway;
-    private Integer resultHome;
-    private Integer resultAway;
+    private Integer scoreWinner;
+    private Integer scoreLooser;
+    private Integer resultWinner;
+    private Integer resultLooser;
+    private String winnerGame;
+    private String winnerMatch;
     private Integer points;
 }
